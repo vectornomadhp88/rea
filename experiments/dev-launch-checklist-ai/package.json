@@ -1,0 +1,17 @@
+{
+  "name": "dev-launch-checklist-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generate a 10-minute project readiness report from a local repository.",
+  "type": "module",
+  "bin": {
+    "dev-launch-checklist-ai": "./src/cli.mjs"
+  },
+  "scripts": {
+    "start": "node ./src/cli.mjs",
+    "report:sample": "node ./src/cli.mjs /home/runner/work/rea/rea --fix-suggestions --output ./samples/sample-report.md"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
