@@ -1,0 +1,27 @@
+name: Bug report
+description: Report incorrect scoring, evidence, or CLI behavior.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: What happened?
+      description: Include the command you ran and what you expected.
+      placeholder: "Command: ...\nExpected: ...\nActual: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Report excerpt
+      description: Paste the relevant score/findings/evidence section.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "0.1.0"
+    validations:
+      required: true

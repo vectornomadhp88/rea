@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  scan-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scanner smoke check
+        run: node ./src/cli.mjs . --fix-suggestions --output ./samples/ci-report.md
+
+      - name: Upload generated report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-report
+          path: samples/ci-report.md
